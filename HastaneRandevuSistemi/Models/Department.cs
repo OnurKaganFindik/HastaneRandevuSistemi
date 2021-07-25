@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace HastaneRandevuSistemi.Models
 {
-    public class StaffMember:Person
+   public class Department
     {
-        public string Department { get; set; }
-        public char Grade { get; set; }
+        public int Id { get; set; }
+        public string DepartmentName { get; set; }
+        public List<Doctor> Doctors { get; set; }
     }
 }

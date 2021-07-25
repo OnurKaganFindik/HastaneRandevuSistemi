@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace HastaneRandevuSistemi.Models
 {
-    public sealed class HealthcareProfessional:StaffMember
+    public class Doctor : Person
     {
+        public string Title { get; set; }
         public string Profession { get; set; }
+        public int DepartmentId { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
 }

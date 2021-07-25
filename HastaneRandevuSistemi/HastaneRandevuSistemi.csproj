@@ -52,8 +52,6 @@
     <Compile Include="Doktorlar.Designer.cs">
       <DependentUpon>Doktorlar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Enum\CommunicationType.cs" />
-    <Compile Include="Enum\CountryCode.cs" />
     <Compile Include="Enum\Gender.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -67,13 +65,11 @@
     <Compile Include="Hastalar.Designer.cs">
       <DependentUpon>Hastalar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\HealthcareProfessional.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\PatientID.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\StaffMember.cs" />
-    <Compile Include="Models\Telecommunication.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Doktorlar.resx">
