@@ -17,11 +17,6 @@ namespace HastaneRandevuSistemi
             InitializeComponent();
         }
 
-        private void tsmiRandevular_Click(object sender, EventArgs e)
-        {
-            Randevular randevular = new Randevular();
-            randevular.ShowDialog();
-        }
 
         private void tsmiDoktorlar_Click(object sender, EventArgs e)
         {
