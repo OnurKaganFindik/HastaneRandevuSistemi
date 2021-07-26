@@ -8,10 +8,9 @@ namespace HastaneRandevuSistemi.Models
 {
     public abstract class Person
     {
-        public int PersonId { get; set; }
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime RegistrationDate { get; set; }
+        public DateTime? ExitDate { get; set; }
     }
 }

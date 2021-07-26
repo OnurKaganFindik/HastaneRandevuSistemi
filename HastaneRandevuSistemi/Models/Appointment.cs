@@ -8,7 +8,10 @@ namespace HastaneRandevuSistemi.Models
 {
     public class Appointment
     {
-      
+        public Appointment()
+        {
+            CreatedDate = DateTime.Now;
+        }
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime AppointmentDate { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HastaneRandevuSistemi.Models
 {
-   public class Department
+    public class Department
     {
         public int Id { get; set; }
         public string DepartmentName { get; set; }

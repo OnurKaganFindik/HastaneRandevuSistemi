@@ -112,6 +112,7 @@ namespace HastaneRandevuSistemi
             this.btnEkle.Text = "Randevu Ekle";
             this.btnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // label3
             // 
@@ -230,6 +231,7 @@ namespace HastaneRandevuSistemi
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AnaForm";
             this.Text = "Hastane Randevu Sistemi";
+            this.Load += new System.EventHandler(this.AnaForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRandevu)).EndInit();

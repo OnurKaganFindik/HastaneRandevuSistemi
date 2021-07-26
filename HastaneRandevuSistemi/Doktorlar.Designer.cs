@@ -36,7 +36,7 @@ namespace HastaneRandevuSistemi
             this.label1 = new System.Windows.Forms.Label();
             this.tbxAd = new System.Windows.Forms.TextBox();
             this.cbxBolum = new System.Windows.Forms.ComboBox();
-            this.cbxUzmanlık = new System.Windows.Forms.ComboBox();
+            this.cbxUzmanlik = new System.Windows.Forms.ComboBox();
             this.tbxUnvan = new System.Windows.Forms.TextBox();
             this.dgvDoktorlar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoktorlar)).BeginInit();
@@ -96,6 +96,7 @@ namespace HastaneRandevuSistemi
             this.tbxAd.Name = "tbxAd";
             this.tbxAd.Size = new System.Drawing.Size(176, 20);
             this.tbxAd.TabIndex = 15;
+            this.tbxAd.TextChanged += new System.EventHandler(this.tbxAd_TextChanged);
             // 
             // cbxBolum
             // 
@@ -115,11 +116,11 @@ namespace HastaneRandevuSistemi
             this.cbxBolum.Size = new System.Drawing.Size(176, 21);
             this.cbxBolum.TabIndex = 14;
             // 
-            // cbxUzmanlık
+            // cbxUzmanlik
             // 
-            this.cbxUzmanlık.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxUzmanlık.FormattingEnabled = true;
-            this.cbxUzmanlık.Items.AddRange(new object[] {
+            this.cbxUzmanlik.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxUzmanlik.FormattingEnabled = true;
+            this.cbxUzmanlik.Items.AddRange(new object[] {
             "Kardiyoloji",
             "Kalp-Damar",
             "Beyin",
@@ -128,10 +129,10 @@ namespace HastaneRandevuSistemi
             "Radyoloji",
             "Pediatri",
             "Çocuk Doğum"});
-            this.cbxUzmanlık.Location = new System.Drawing.Point(148, 109);
-            this.cbxUzmanlık.Name = "cbxUzmanlık";
-            this.cbxUzmanlık.Size = new System.Drawing.Size(176, 21);
-            this.cbxUzmanlık.TabIndex = 13;
+            this.cbxUzmanlik.Location = new System.Drawing.Point(148, 109);
+            this.cbxUzmanlik.Name = "cbxUzmanlik";
+            this.cbxUzmanlik.Size = new System.Drawing.Size(176, 21);
+            this.cbxUzmanlik.TabIndex = 13;
             // 
             // tbxUnvan
             // 
@@ -167,11 +168,12 @@ namespace HastaneRandevuSistemi
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxAd);
             this.Controls.Add(this.cbxBolum);
-            this.Controls.Add(this.cbxUzmanlık);
+            this.Controls.Add(this.cbxUzmanlik);
             this.Controls.Add(this.tbxUnvan);
             this.Controls.Add(this.dgvDoktorlar);
             this.Name = "Doktorlar";
             this.Text = "Doktorlar";
+            this.Load += new System.EventHandler(this.Doktorlar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoktorlar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -187,7 +189,7 @@ namespace HastaneRandevuSistemi
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbxAd;
         private System.Windows.Forms.ComboBox cbxBolum;
-        private System.Windows.Forms.ComboBox cbxUzmanlık;
+        private System.Windows.Forms.ComboBox cbxUzmanlik;
         private System.Windows.Forms.TextBox tbxUnvan;
         private System.Windows.Forms.DataGridView dgvDoktorlar;
     }
