@@ -208,6 +208,7 @@ namespace HastaneRandevuSistemi
             this.dgvRandevu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRandevu.Size = new System.Drawing.Size(566, 330);
             this.dgvRandevu.TabIndex = 25;
+            this.dgvRandevu.DoubleClick += new System.EventHandler(this.dgvRandevu_DoubleClick);
             // 
             // AnaForm
             // 

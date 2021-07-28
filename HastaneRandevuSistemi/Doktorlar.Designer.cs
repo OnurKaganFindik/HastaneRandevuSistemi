@@ -53,6 +53,7 @@ namespace HastaneRandevuSistemi
             this.btnEkle.Text = "Kayıt Et";
             this.btnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // label3
             // 
@@ -155,6 +156,7 @@ namespace HastaneRandevuSistemi
             this.dgvDoktorlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoktorlar.Size = new System.Drawing.Size(650, 316);
             this.dgvDoktorlar.TabIndex = 11;
+            this.dgvDoktorlar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDoktorlar_CellMouseClick);
             // 
             // Doktorlar
             // 
@@ -173,6 +175,7 @@ namespace HastaneRandevuSistemi
             this.Controls.Add(this.dgvDoktorlar);
             this.Name = "Doktorlar";
             this.Text = "Doktorlar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Doktorlar_FormClosing);
             this.Load += new System.EventHandler(this.Doktorlar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoktorlar)).EndInit();
             this.ResumeLayout(false);

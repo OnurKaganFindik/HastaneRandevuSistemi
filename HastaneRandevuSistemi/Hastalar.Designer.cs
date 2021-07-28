@@ -50,6 +50,7 @@ namespace HastaneRandevuSistemi
             this.btnEkle.Text = "Hasta Ekle";
             this.btnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // label4
             // 
@@ -81,14 +82,8 @@ namespace HastaneRandevuSistemi
             this.cbxCinsiyet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCinsiyet.FormattingEnabled = true;
             this.cbxCinsiyet.Items.AddRange(new object[] {
-            "Kardiyoloji",
-            "Kalp-Damar",
-            "Beyin",
-            "Göz",
-            "Fizyoloji",
-            "Radyoloji",
-            "Pediatri",
-            "Çocuk Doğum"});
+            "Kadın",
+            "Erkek"});
             this.cbxCinsiyet.Location = new System.Drawing.Point(148, 50);
             this.cbxCinsiyet.Name = "cbxCinsiyet";
             this.cbxCinsiyet.Size = new System.Drawing.Size(176, 21);
@@ -108,6 +103,7 @@ namespace HastaneRandevuSistemi
             this.dgvHastalar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHastalar.Size = new System.Drawing.Size(570, 339);
             this.dgvHastalar.TabIndex = 31;
+            this.dgvHastalar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvHastalar_MouseClick);
             // 
             // Hastalar
             // 
@@ -122,6 +118,8 @@ namespace HastaneRandevuSistemi
             this.Controls.Add(this.dgvHastalar);
             this.Name = "Hastalar";
             this.Text = "Hastalar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Hastalar_FormClosing);
+            this.Load += new System.EventHandler(this.Hastalar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHastalar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

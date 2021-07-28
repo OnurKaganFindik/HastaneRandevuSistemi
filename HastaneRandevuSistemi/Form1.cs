@@ -20,17 +20,76 @@ namespace HastaneRandevuSistemi
         {
             InitializeComponent();
         }
+        public void ListeyiGuncelle(object[] liste)
+        {
+            if (liste.Length > 0)
+            {
+                Type type = liste[0].GetType();
+                if (type == typeof(Patient))
+                {
+                    patients = liste.Select(x => (Patient)x).ToList();
+                    cbxHasta.Items.Clear();
+                }
+                if (type == typeof(Doctor))
+                {
+                    doctors = liste.Select(x => (Doctor)x).ToList();
+                }
+            }
+            else
+            {
+                string type = liste.GetType().Name.Substring(0, liste.GetType().Name.Length - 2);
 
+                if (type == "Patient")
+                {
+                    cbxHasta.Items.Clear();
+                    patients.Clear();
+                }
+                if (type == "Doctor")
+                {
+                    cbxDoktor.Items.Clear();
+                    doctors.Clear();
+                }
+            }
+
+            FillComboBoxes();
+        }
+
+        private void FillComboBoxes()
+        {
+
+            cbxHasta.Items.Clear();
+            cbxDoktor.Items.Clear();
+
+            foreach (var patient in patients)
+            {
+                cbxHasta.Items.Add(patient);
+            }
+
+            foreach (var doctor in doctors)
+            {
+                cbxDoktor.Items.Add(doctor);
+            }
+
+            if (cbxHasta.Items.Count > 0)
+            {
+                cbxHasta.SelectedIndex = 0;
+            }
+
+            if (cbxDoktor.Items.Count > 0)
+            {
+                cbxDoktor.SelectedIndex = 0;
+            }
+        }
 
         private void tsmiDoktorlar_Click(object sender, EventArgs e)
         {
-            Doktorlar doktorlar = new Doktorlar(doctors);
+            Doktorlar doktorlar = new Doktorlar(doctors,this);
             doktorlar.ShowDialog();
         }
 
         private void tsmiHastalar_Click(object sender, EventArgs e)
         {
-            Hastalar hastalar = new Hastalar();
+            Hastalar hastalar = new Hastalar(patients, this);
             hastalar.ShowDialog();
         }
 
@@ -48,13 +107,7 @@ namespace HastaneRandevuSistemi
             dgvRandevu.Columns.Add("AppointmentDate", "Randevu Tarihi");
 
             dgvRandevu.Columns[0].Visible = false;
-
-            doctors.AddRange(new Doctor[]
-            {
-                new Doctor { DepartmentId = 1, Id = 1, Name = "Gul", Profession = "Kardiyoloji", Title = "Dr. "},
-                new Doctor { DepartmentId = 2, Id = 2, Name = "Ahmet", Profession = "Kalp-Damar", Title = "Prof. "},
-                new Doctor { DepartmentId = 3, Id = 3, Name = "Murat", Profession = "Fizyoloji", Title = "Doc. "}
-            });
+            //appointments.ListChanged += Appointments_ListChanged;
 
             cbxDoktor.DisplayMember = "Name";
             cbxHasta.DisplayMember = "Name";
@@ -112,6 +165,25 @@ namespace HastaneRandevuSistemi
                 appointment.PatientId = appointment.Patient.Id;
 
                 appointments.Add(appointment);
+            }
+        }
+        private void Appointments_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            dgvRandevu.Rows.Clear();
+
+            foreach (var appointment in appointments)
+            {
+                dgvRandevu.Rows.Add(appointment.Id, appointment.Description, appointment.Notes, appointment.Doctor.Profession, appointment.Doctor.Name, appointment.Doctor.Title, appointment.Patient.Name, appointment.Patient.Gender, appointment.AppointmentDate);
+            }
+        }
+
+        private void dgvRandevu_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvRandevu.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dgvRandevu.SelectedRows[0].Cells[0].Value);
+                Appointment appointment = appointments.FirstOrDefault(x => x.Id == id);
+                appointments.Remove(appointment);
             }
         }
     }
